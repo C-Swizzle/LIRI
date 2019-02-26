@@ -18,11 +18,22 @@ if(commandToDo==="concert-this"){
 }
 function spotifyLookup(str){
     spotify
-    .search({ type: 'track', query: str, limit:1})
+    .search({ type: 'track', query: str, limit:5})
     .then(function(response) {
         console.log(JSON.stringify(response,null,2));
       var primaryArist = response.tracks.items[0].album.artists[0].name;
+      var otherArist = response.tracks.items[1].album.artists[0].name;
+      var otherArist = response.tracks.items[1].album.artists[0].name;
+      for (var i=0;i<response.tracks.items.length;i++){
+          console.log("Artist: "+response.tracks.items[i].album.artists[0].name +"\n");
+          console.log("Album: "+response.tracks.items[i].album.name +"\n");
+
+      }
+
+
       console.log("Primary artist: "+primaryArist);
+      console.log("second artist: "+otherArist);
+
     })
     .catch(function(err) {
       console.log(err);
