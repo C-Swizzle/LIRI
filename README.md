@@ -12,11 +12,11 @@ The valid commands are:
 
 
 input in git bash: `node liri concert-this <band/artist name here, spaces OK>`  
-[Sample Concert Request Output](./assets/concert.png)  
+[Sample Concert Request Output](./assets/concert.PNG)  
 
 
 input in git bash: `node liri spotify-this-song <song name here, spaces OK>`  
-[Sample Spotify Request](./assets/spotify.png)  
+[Sample Spotify Request](./assets/spotify.PNG)  
 
 input in git bash: `node liri movie-this <movie name here, spaces OK>`  
 [Sample Movie Request](./assets/movie.png)  
