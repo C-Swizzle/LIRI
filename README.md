@@ -10,8 +10,15 @@ The valid commands are:
 * `movie-this` followed by a movie title
 * `do-what-it-says`
 
-[Sample Concert Request](./assets/concert.png)  
+
+input in git bash: `node liri concert-this <band/artist name here, spaces OK>`  
+[Sample Concert Request Output](./assets/concert.png)  
+
+
+input in git bash: `node liri spotify-this-song <song name here, spaces OK>`  
 [Sample Spotify Request](./assets/spotify.png)  
+
+input in git bash: `node liri movie-this <movie name here, spaces OK>`  
 [Sample Movie Request](./assets/movie.png)  
 
 The concert request will return all upcoming concerts.
