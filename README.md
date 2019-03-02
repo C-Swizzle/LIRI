@@ -1,7 +1,7 @@
 # LIRI
 This is a node based application that utilizes APIs to return an output based on user input
+#IN ORDER TO USE THIS, YOU NEED YOUR OWN API KEY FROM SPOTIFY IN A DOTENV
 
-##IN ORDER TO USE THIS, YOU NEED YOUR OWN API KEY FROM SPOTIFY IN A DOTENV
 
 
 The valid commands are:
@@ -9,3 +9,5 @@ The valid commands are:
 * `spotify-this` followed by a band/artist
 * `movie-this` followed by a movie title
 * `do-what-it-says`
+
+[Sample Request](./assets/spotify.png)

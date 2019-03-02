@@ -75,7 +75,7 @@ function bandInTownLookup(str){
 function omdbLookup(str){
     var queryURL = "https://www.omdbapi.com/?t=" + str + "&y=&plot=short&apikey=trilogy";
     axios.get(queryURL).then(function(response){
-        console.log(response);
+        // console.log(response);
         console.log("----------------------------------------------------------");
         console.log("Title: "+response.data.Title);
         console.log("Release year: "+response.data.Year);
