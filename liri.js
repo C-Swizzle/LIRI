@@ -22,11 +22,13 @@ function spotifyLookup(str){
     spotify
     .search({ type: 'track', query: str, limit:5})
     .then(function(response) {
-        console.log(JSON.stringify(response,null,2));
+        // console.log(JSON.stringify(response,null,2));
     //   var primaryArist = response.tracks.items[0].album.artists[0].name;
     //   var otherArist = response.tracks.items[1].album.artists[0].name;
     //   var otherArist = response.tracks.items[1].album.artists[0].name;
       for (var i=0;i<response.tracks.items.length;i++){
+        console.log("------------------------------------------------------------------");
+
           console.log("Artist: "+response.tracks.items[i].album.artists[0].name +"\n");
           console.log("Album: "+response.tracks.items[i].album.name +"\n");
           console.log("song: "+response.tracks.items[i].name +"\n");
@@ -57,3 +59,26 @@ function bandInTownLookup(str){
 //     console.log("The movie's rating is: " + response.data.imdbRating);
 //   }
 // );
+function omdbLookup(str){
+    var queryURL = "https://www.omdbapi.com/?t=" + str + "&y=&plot=short&apikey=trilogy";
+    axios.get(queryURL).then(function(response){
+        console.log(response);
+        console.log("Title: "+response.data.Title);
+        console.log("Release year: "+response.data.Year);
+        console.log("imdbRating: "+response.data.imdbRating);
+        console.log("Rotten Tomatoes rating: "+response.data.Ratings[0]);
+        console.log("Language(s): "+response.data.Language);
+        console.log("Country: "+response.data.Country);
+        console.log("Synopsis: "+response.data.Plot);
+        console.log("Actors: "+response.data.Actors)
+    });
+
+}
+//  * Title of the movie.
+// * Year the movie came out.
+// * IMDB Rating of the movie.
+// * Rotten Tomatoes Rating of the movie.
+// * Country where the movie was produced.
+// * Language of the movie.
+// * Plot of the movie.
+// * Actors in the movie.
