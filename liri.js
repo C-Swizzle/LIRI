@@ -6,7 +6,7 @@ var keys = require("./keys.js");
 var Spotify=require("node-spotify-api");
 var spotify = new Spotify(keys.spotify);
 var axios=require("axios");
-
+var moment=require("moment");
 if(commandToDo==="concert-this"){
     bandInTownLookup(otherInput);
 }else if(commandToDo==="spotify-this-song"){
@@ -27,8 +27,7 @@ function spotifyLookup(str){
     //   var otherArist = response.tracks.items[1].album.artists[0].name;
     //   var otherArist = response.tracks.items[1].album.artists[0].name;
       for (var i=0;i<response.tracks.items.length;i++){
-        console.log("------------------------------------------------------------------");
-
+        console.log("--------------------------------------------------------------------");
           console.log("Artist: "+response.tracks.items[i].album.artists[0].name +"\n");
           console.log("Album: "+response.tracks.items[i].album.name +"\n");
           console.log("song: "+response.tracks.items[i].name +"\n");
@@ -47,9 +46,22 @@ function spotifyLookup(str){
 }
 
 function bandInTownLookup(str){
-    axios.get("https://rest.bandsintown.com/artists/" + str +  "?app_id=anything")
+    axios.get("https://rest.bandsintown.com/artists/" + str +  "/events?app_id=anything")
     .then(function(response){
-        console.log(response);
+        // console.log(response.data);
+        // console.log(JSON.stringify(response.data[1].venue,null,3));
+        for (var i=0; i<response.data.length;i++){
+            var rawDate=response.data[i].datetime.split("T");
+            var date=moment(rawDate[0],"YYYY-MM-DD").format("MM/DD/YYYY");
+            var time=moment(rawDate[1],"HH:mm:ss").format("LT");
+            console.log("---------------------------------------------------");
+            // console.log("Hello")
+            console.log("Venue: "+response.data[i].venue.name);
+            console.log("Location: "+response.data[i].venue.city);
+            console.log("Date: "+date);
+            console.log("Time: "+time);
+            console.log("---------------------------------------------------");
+        }
     })
 };
 
@@ -63,14 +75,17 @@ function omdbLookup(str){
     var queryURL = "https://www.omdbapi.com/?t=" + str + "&y=&plot=short&apikey=trilogy";
     axios.get(queryURL).then(function(response){
         console.log(response);
+        console.log("----------------------------------------------------------");
         console.log("Title: "+response.data.Title);
         console.log("Release year: "+response.data.Year);
         console.log("imdbRating: "+response.data.imdbRating);
-        console.log("Rotten Tomatoes rating: "+response.data.Ratings[0]);
+        console.log("Rotten Tomatoes Rating: "+response.data.Ratings[1].Value);
         console.log("Language(s): "+response.data.Language);
         console.log("Country: "+response.data.Country);
         console.log("Synopsis: "+response.data.Plot);
-        console.log("Actors: "+response.data.Actors)
+        console.log("Actors: "+response.data.Actors);
+        console.log("----------------------------------------------------------");
+
     });
 
 }
