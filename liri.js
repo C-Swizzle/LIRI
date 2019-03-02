@@ -7,6 +7,7 @@ var Spotify=require("node-spotify-api");
 var spotify = new Spotify(keys.spotify);
 var axios=require("axios");
 var moment=require("moment");
+var fs=require("fs");
 if(commandToDo==="concert-this"){
     bandInTownLookup(otherInput);
 }else if(commandToDo==="spotify-this-song"){
@@ -97,3 +98,12 @@ function omdbLookup(str){
 // * Language of the movie.
 // * Plot of the movie.
 // * Actors in the movie.
+function doRandomLookup(){
+fs.readFile("random.txt","utf8",function(err,data){
+    if(err){
+        console.log(err);
+    }
+    console.log(data);
+    spotifyLookup(data.split(",")[1]);
+})
+}
