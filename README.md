@@ -1,6 +1,6 @@
-# LIRI
-This is a node based application that utilizes APIs to return an output based on user input
-#IN ORDER TO USE THIS, YOU NEED YOUR OWN API KEY FROM SPOTIFY IN A DOTENV
+# LIRI 
+This is a node based application that utilizes APIs to return an output based on user input  
+##IN ORDER TO USE THIS, YOU NEED YOUR OWN API KEY FROM SPOTIFY IN A DOTENV
 
 
 
@@ -21,6 +21,6 @@ input in git bash: `node liri spotify-this-song <song name here, spaces OK>`
 input in git bash: `node liri movie-this <movie name here, spaces OK>`  
 [Sample Movie Request](./assets/movie.png)  
 
-The concert request will return all upcoming concerts.
-The song request will return the 5 best matches for a song search.
-The movie request will return the best 1 movie match for the search.
+The concert request will return all upcoming concerts.  
+The song request will return the 5 best matches for a song search.  
+The movie request will return the best 1 movie match for the search.  
