@@ -6,8 +6,14 @@ This is a node based application that utilizes APIs to return an output based on
 
 The valid commands are:
 * `concert-this` followed by a band/artist
-* `spotify-this` followed by a band/artist
+* `spotify-this-song` followed by a song
 * `movie-this` followed by a movie title
 * `do-what-it-says`
 
-[Sample Request](./assets/spotify.png)
+[Sample Concert Request](./assets/concert.png)
+[Sample Spotify Request](./assets/spotify.png)
+[Sample Movie Request](./assets/movie.png)
+
+The concert request will return all upcoming concerts.
+The song request will return the 5 best matches for a song search.
+The movie request will return the best 1 movie match for the search.
